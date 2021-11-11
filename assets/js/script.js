@@ -150,6 +150,9 @@ var editTask = function(taskId) {
 
     document.querySelector("input[name='task-name']").value = taskName;
     document.querySelector("select[name='task-type']").vallue = taskType;
+
+    formEl.setAttribute("data-task-id", taskID);
+    formEl.querySelector("#save-task").textContent = "Save Task";
 }
 
 var completeEditTask = function(taskName, taskType, taskId) {
@@ -168,12 +171,12 @@ var completeEditTask = function(taskName, taskType, taskId) {
         }
     }
 
-    saveTasks();
-
     alert("Task Updated!");
     
     formEl.removeAttribute("data-task-id");
     document.querySelector("#save-task").textContent = "Add Task";
+
+    saveTasks();
 }
 
 var deleteTask = function(taskId) {
